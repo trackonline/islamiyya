@@ -485,7 +485,7 @@ function displayProgressCard(studentInfo, studentData) {
                     rank = subject.obtMark + " / " + subject.maxMark;
                 } else {
                     const grade = getGrade(subject.maxMark, subject.obtMark);
-                    const isPassed = parseInt(subject.obtMark) >= 18;
+                    const isPassed = parseInt(subject.obtMark) >= 15;
                     const statusIcon = isPassed ? 'P' : 'F';
                     const rowStyle = isPassed ? "" : 'style="background-color: #ffcccc; font-weight: bold;"';
 

@@ -466,7 +466,7 @@ function displayProgressCard(studentInfo, studentData) {
                         <th>Max Marks</th>
                         <th>Obtained Marks</th>
                         <th>Grade</th>
-                        <th>Status</th>
+                        <!--- <th>Status</th> ----!>
                     </tr>
     `;
 
@@ -477,6 +477,7 @@ function displayProgressCard(studentInfo, studentData) {
     let rank = "";
 
     if (Array.isArray(studentData)) {
+        let faild = 0;
         studentData.forEach((subject) => {
             if (typeof subject === 'object' && subject !== null) {
                 if (subject.subject === "hajar") {
@@ -485,11 +486,12 @@ function displayProgressCard(studentInfo, studentData) {
                     rank = subject.obtMark + " / " + subject.maxMark;
                 } else {
                     const grade = getGrade(subject.maxMark, subject.obtMark);
-                    const isPassed = parseInt(subject.obtMark) >= 18;
-                    const statusIcon = isPassed ? 'P' : 'F';
-                    const rowStyle = isPassed ? "" : 'style="background-color: #ffcccc; font-weight: bold;"';
+                    //const isPassed = parseInt(subject.obtMark) <= 18;
+                    faild = parseInt(subject.obtMark) <= 18 ? faild+1 : "";
+                    //const statusIcon = isPassed>1 ? 'P' : 'F';
+                    //const rowStyle = isPassed ? "" : 'style="background-color: #ffcccc; font-weight: bold;"';
 
-                    if (!isPassed) {
+                    if (faild>1) {
                         hasFailed = true;
                     }
 

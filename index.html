@@ -487,7 +487,7 @@ function displayProgressCard(studentInfo, studentData) {
                 } else {
                     const grade = getGrade(subject.maxMark, subject.obtMark);
                     //const isPassed = parseInt(subject.obtMark) <= 18;
-                    if (parseInt(subject.obtMark) <= 18) {
+                    if (parseInt(subject.obtMark) < 18) {
     faild += 1;
 }
 
